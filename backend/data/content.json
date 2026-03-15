@@ -1,0 +1,756 @@
+{
+  "site": {
+    "title": "OpenClaw 智能助手解决方案",
+    "subtitle": "让 AI 成为您的 24 小时私人助理",
+    "description": "无需懂技术，只需说句话，AI 自动帮您处理投资、办公、客户跟进等繁琐事务"
+  },
+  "nav": [
+    {
+      "id": "contact",
+      "label": "立即咨询",
+      "icon": "phone",
+      "highlight": true
+    },
+    {
+      "id": "intro",
+      "label": "新手入门",
+      "icon": "book-open"
+    },
+    {
+      "id": "cases",
+      "label": "真实案例",
+      "icon": "briefcase"
+    },
+    {
+      "id": "skills",
+      "label": "技能库",
+      "icon": "puzzle"
+    },
+    {
+      "id": "services",
+      "label": "合作方案",
+      "icon": "handshake"
+    }
+  ],
+  "intro": {
+    "title": "OpenClaw 是什么？",
+    "description": "一句话：像微信一样发消息，AI 自动帮您干活",
+    "sections": [
+      {
+        "title": "它能帮您做什么",
+        "icon": "magic",
+        "content": "想象一下：每天早上醒来，AI 已经帮您看完所有投资数据，告诉您该买还是该卖；客户发来消息，AI 自动回复并记录到表格；您只需要像聊微信一样说句话，复杂的工作就完成了。",
+        "highlights": [
+          {
+            "title": "投资管家",
+            "desc": "自动监控基金股票，每天推送买卖建议"
+          },
+          {
+            "title": "办公秘书",
+            "desc": "自动处理文档、表格、客户跟进"
+          },
+          {
+            "title": "24 小时在线",
+            "desc": "随时随地发消息，秒级响应"
+          },
+          {
+            "title": "数据安全",
+            "desc": "所有数据存在您自己电脑，不上传云端"
+          }
+        ]
+      },
+      {
+        "title": "三步开始使用",
+        "icon": "rocket",
+        "collapsed": true,
+        "install_methods": [
+          {
+            "name": "Mac 电脑",
+            "command": "curl -fsSL https://openclaw.ai/install.sh | bash",
+            "icon": "apple"
+          },
+          {
+            "name": "Windows 电脑",
+            "command": "iwr -useb https://openclaw.ai/install.ps1 | iex",
+            "icon": "windows"
+          },
+          {
+            "name": "技术安装",
+            "command": "npm install -g openclaw@latest",
+            "icon": "npm"
+          }
+        ],
+        "prereqs": [
+          "一台能上网的电脑",
+          "像安装微信一样简单"
+        ]
+      },
+      {
+        "title": "初始化配置",
+        "icon": "cog",
+        "collapsed": true,
+        "steps": [
+          {
+            "step": 1,
+            "title": "运行安装向导",
+            "command": "openclaw onboard --install-daemon",
+            "desc": "就像安装打印机一样，跟着提示点下一步"
+          },
+          {
+            "step": 2,
+            "title": "检查运行状态",
+            "command": "openclaw gateway status",
+            "desc": "确认 AI 助手已经启动"
+          },
+          {
+            "step": 3,
+            "title": "打开控制面板",
+            "command": "openclaw dashboard",
+            "desc": "在浏览器里和 AI 对话"
+          }
+        ]
+      },
+      {
+        "title": "核心概念",
+        "icon": "lightbulb",
+        "collapsed": true,
+        "concepts": [
+          {
+            "term": "AI 网关",
+            "desc": "连接微信、钉钉等软件的中枢，让 AI 能收到您的消息",
+            "icon": "server"
+          },
+          {
+            "term": "技能插件",
+            "desc": "AI 的本领，比如会看股票、会写文档、会查天气",
+            "icon": "puzzle-piece"
+          },
+          {
+            "term": "智能助手",
+            "desc": "执行任务的 AI，像请了一个懂技术的秘书",
+            "icon": "robot"
+          },
+          {
+            "term": "消息通道",
+            "desc": "微信、钉钉、Telegram 等，您习惯用哪个就用哪个",
+            "icon": "comments"
+          },
+          {
+            "term": "记忆功能",
+            "desc": "AI 记得您之前的对话，越用越懂您",
+            "icon": "memory"
+          },
+          {
+            "term": "手机扩展",
+            "desc": "iPhone/Android 也能用，手机上拍照发给 AI 分析",
+            "icon": "mobile-alt"
+          }
+        ]
+      },
+      {
+        "title": "常用场景",
+        "icon": "star",
+        "features": [
+          {
+            "name": "投资监控",
+            "desc": "每天早上 8 点，AI 自动汇报持仓涨跌，给出操作建议"
+          },
+          {
+            "name": "客户管理",
+            "desc": "客户消息自动分类，重要事项自动提醒跟进"
+          },
+          {
+            "name": "文档处理",
+            "desc": "说句话就能生成报告、整理表格、翻译文件"
+          },
+          {
+            "name": "市场情报",
+            "desc": "自动搜集行业新闻、竞品动态，每天推送摘要"
+          },
+          {
+            "name": "日程安排",
+            "desc": "语音告诉 AI 明天的安排，自动添加到日历"
+          },
+          {
+            "name": "数据分析",
+            "desc": "上传 Excel，AI 自动分析趋势、生成图表"
+          },
+          {
+            "name": "多语言沟通",
+            "desc": "收到外文邮件，AI 自动翻译并起草回复"
+          },
+          {
+            "name": "知识库",
+            "desc": "把公司资料教给 AI，随时问答查询"
+          },
+          {
+            "name": "定时任务",
+            "desc": "每天/每周自动执行重复性工作，无需人工"
+          },
+          {
+            "name": "安全私密",
+            "desc": "数据存在您自己电脑，不上传第三方服务器"
+          }
+        ]
+      },
+      {
+        "title": "为什么选 OpenClaw",
+        "icon": "trophy",
+        "tips": [
+          {
+            "title": "比请助理便宜",
+            "content": "一个助理月薪 5000，OpenClaw 一次投入，24 小时不休息"
+          },
+          {
+            "title": "比传统软件灵活",
+            "content": "不用学复杂操作，说话就能办事，老人也能用"
+          },
+          {
+            "title": "数据自己掌控",
+            "content": "不像其他 AI 要把数据传到别人服务器，您的数据存在自己电脑"
+          },
+          {
+            "title": "越用越聪明",
+            "content": "AI 会记住您的偏好，用得越久越懂您的习惯"
+          },
+          {
+            "title": "扩展无限可能",
+            "content": "需要新功能？装个插件就行，像手机装 App 一样简单"
+          },
+          {
+            "title": "专业团队支持",
+            "content": "遇到问题有技术团队一对一解决，不用自己折腾"
+          }
+        ]
+      },
+      {
+        "title": "实际对话场景",
+        "icon": "comments",
+        "chats": [
+          {
+            "platform": "企业微信",
+            "platform_icon": "wechat",
+            "messages": [
+              {
+                "role": "user",
+                "content": "帮我查一下今天各基金的净值"
+              },
+              {
+                "role": "assistant",
+                "content": "📊 今日基金净值汇报：\n\n中欧行业成长：2.847 元 (+1.2%)\n兴全合润：1.956 元 (-0.3%)\n纳指 100ETF：4.125 元 (+2.1%)\n\n💡 建议：纳指近期表现较好，可考虑适当加仓"
+              }
+            ]
+          },
+          {
+            "platform": "钉钉",
+            "platform_icon": "dingding",
+            "messages": [
+              {
+                "role": "user",
+                "content": "把这份合同总结一下，看看有没有风险"
+              },
+              {
+                "role": "assistant",
+                "content": "📄 合同摘要：\n\n✅ 合作方：XX 科技有限公司\n✅ 金额：50 万元\n✅ 工期：3 个月\n\n⚠️ 风险提示：\n1. 付款条款为 3-7 分期，尾款风险较高\n2. 违约责任条款不够明确\n3. 建议增加验收标准细则\n\n需要我帮您修改合同吗？"
+              }
+            ]
+          },
+          {
+            "platform": "飞书",
+            "platform_icon": "feishu",
+            "messages": [
+              {
+                "role": "user",
+                "content": "下周三下午 3 点提醒我联系王总谈合作"
+              },
+              {
+                "role": "assistant",
+                "content": "✅ 已添加到日程\n\n📅 提醒事项：\n时间：下周三（3 月 20 日）下午 3:00\n事项：联系王总谈合作\n方式：微信/电话\n\n我会在当天提前 30 分钟提醒您。需要我帮您准备合作方案的资料吗？"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "cases": {
+    "title": "真实客户案例",
+    "description": "看看别人怎么用 OpenClaw 提升效率",
+    "case_list": [
+      {
+        "title": "张总的投资管家",
+        "category": "个人理财",
+        "description": "张总平时忙生意，没时间盯盘。我们帮他配置了投资监控，每天早上 8 点 AI 自动汇报持仓涨跌，重大变动立即微信提醒。",
+        "features": [
+          "自动净值查询",
+          "涨跌预警",
+          "买卖建议",
+          "收益统计"
+        ],
+        "tech": [
+          "投资监控插件",
+          "定时任务",
+          "微信推送"
+        ],
+        "results": "从每天花 2 小时看盘，到现在每天看 5 分钟 AI 报告，投资收益还提高了 15%"
+      },
+      {
+        "title": "李经理的客户跟进",
+        "category": "销售管理",
+        "description": "李经理有 200 多个客户，经常忘记跟进。AI 帮他记录每次沟通，自动提醒下次联系时间，客户询价自动回复。",
+        "features": [
+          "客户档案管理",
+          "自动提醒",
+          "询价回复",
+          "跟进记录"
+        ],
+        "tech": [
+          "客户管理插件",
+          "记忆系统",
+          "自动回复"
+        ],
+        "results": "客户满意度提升 30%，成交率提高 20%，再也不漏单"
+      },
+      {
+        "title": "王老板的文档助手",
+        "category": "办公自动化",
+        "description": "王老板经常要处理合同、报告。现在直接发语音给 AI，5 分钟就能拿到整理好的文档，还能自动检查风险条款。",
+        "features": [
+          "语音转文字",
+          "合同审查",
+          "报告生成",
+          "风险提醒"
+        ],
+        "tech": [
+          "文档处理插件",
+          "语音识别",
+          "AI 分析"
+        ],
+        "results": "处理文档时间从 2 小时缩短到 20 分钟，出错率降为 0"
+      },
+      {
+        "title": "赵总的市场情报",
+        "category": "商业分析",
+        "description": "赵总需要了解行业动态和竞品情况。AI 每天自动搜集新闻、整理报告，重要信息第一时间推送。",
+        "features": [
+          "自动新闻搜集",
+          "竞品监控",
+          "日报推送",
+          "趋势分析"
+        ],
+        "tech": [
+          "新闻监控插件",
+          "搜索技能",
+          "报告生成"
+        ],
+        "results": "信息获取效率提升 10 倍，决策更快更准"
+      },
+      {
+        "title": "陈总的文旅项目",
+        "category": "商业策划",
+        "description": "陈总要投资一个文旅项目，需要了解目标客群和周边竞品。AI 自动分析游客画像、监控竞品舆情、生成详细报告。",
+        "features": [
+          "游客画像分析",
+          "竞品舆情监控",
+          "市场调研报告",
+          "投资决策建议"
+        ],
+        "tech": [
+          "文旅策划插件",
+          "网络搜索",
+          "数据分析"
+        ],
+        "results": "调研周期从 2 周缩短到 3 天，投资决策更有信心"
+      },
+      {
+        "title": "刘主任的邮件处理",
+        "category": "办公效率",
+        "description": "刘主任每天收到上百封邮件，AI 自动分类、提取关键信息、起草回复，重要邮件立即提醒。",
+        "features": [
+          "邮件自动分类",
+          "关键信息提取",
+          "智能起草回复",
+          "重要事项提醒"
+        ],
+        "tech": [
+          "邮件处理插件",
+          "文档分析",
+          "自动回复"
+        ],
+        "results": "处理邮件时间从每天 3 小时缩短到 30 分钟"
+      },
+      {
+        "title": "周厂长的安全加固",
+        "category": "系统安全",
+        "description": "周厂长担心工厂数据安全，AI 自动检测系统漏洞、加固安全设置、定期生成安全报告。",
+        "features": [
+          "漏洞自动检测",
+          "安全设置加固",
+          "风险预警",
+          "合规报告生成"
+        ],
+        "tech": [
+          "安全检测插件",
+          "系统审计",
+          "风险分析"
+        ],
+        "results": "发现 3 个高危漏洞并修复，通过安全合规检查"
+      }
+    ]
+  },
+  "skills": {
+    "title": "AI 技能库",
+    "description": "像手机 App 一样，按需安装 AI 技能",
+    "official_list": [
+      {
+        "name": "天气查询",
+        "description": "查天气、看预报",
+        "icon": "cloud-sun",
+        "tags": [
+          "生活",
+          "出行"
+        ]
+      },
+      {
+        "name": "网络搜索",
+        "description": "Google 搜索替代方案",
+        "icon": "search",
+        "tags": [
+          "信息",
+          "调研"
+        ]
+      },
+      {
+        "name": "网页抓取",
+        "description": "提取网页内容保存",
+        "icon": "download",
+        "tags": [
+          "资料",
+          "收藏"
+        ]
+      },
+      {
+        "name": "代码助手",
+        "description": "帮助写程序、改 Bug",
+        "icon": "code",
+        "tags": [
+          "技术",
+          "开发"
+        ]
+      },
+      {
+        "name": "工具管理",
+        "description": "连接其他软件工具",
+        "icon": "server",
+        "tags": [
+          "集成",
+          "扩展"
+        ]
+      },
+      {
+        "name": "提示优化",
+        "description": "让 AI 更懂您的意思",
+        "icon": "sparkles",
+        "tags": [
+          "效率",
+          "沟通"
+        ]
+      },
+      {
+        "name": "AI 对话",
+        "description": "谷歌 Gemini 集成",
+        "icon": "bot",
+        "tags": [
+          "对话",
+          "生成"
+        ]
+      },
+      {
+        "name": "安全检测",
+        "description": "系统安全检查",
+        "icon": "shield",
+        "tags": [
+          "安全",
+          "运维"
+        ]
+      }
+    ],
+    "custom_list": [
+      {
+        "name": "投资监控",
+        "description": "基金股票实时监控，智能买卖建议",
+        "icon": "chart-line",
+        "tags": [
+          "理财",
+          "投资",
+          "股票"
+        ],
+        "highlights": [
+          "自动净值查询",
+          "价格预警",
+          "微信推送",
+          "收益分析"
+        ]
+      },
+      {
+        "name": "财经新闻",
+        "description": "财经新闻聚合分析，市场动态一手掌握",
+        "icon": "newspaper",
+        "tags": [
+          "新闻",
+          "财经",
+          "市场"
+        ],
+        "highlights": [
+          "A 股美股基金",
+          "要闻筛选",
+          "日报推送"
+        ]
+      },
+      {
+        "name": "投资组合",
+        "description": "投资组合追踪与收益报告生成",
+        "icon": "wallet",
+        "tags": [
+          "投资",
+          "组合",
+          "报告"
+        ],
+        "highlights": [
+          "交易记录",
+          "收益计算",
+          "配置分析"
+        ]
+      },
+      {
+        "name": "文旅策划",
+        "description": "文旅商业策划助手，人群画像竞品调研",
+        "icon": "map-location",
+        "tags": [
+          "文旅",
+          "商业",
+          "策划"
+        ],
+        "highlights": [
+          "人群画像",
+          "舆情监控",
+          "竞品调研",
+          "报告生成"
+        ]
+      },
+      {
+        "name": "企业微信文档",
+        "description": "企业微信文档和智能表格自动操作",
+        "icon": "file-word",
+        "tags": [
+          "办公",
+          "文档",
+          "企业微信"
+        ],
+        "highlights": [
+          "自动创建文档",
+          "智能表格操作",
+          "模板管理",
+          "权限控制"
+        ]
+      },
+      {
+        "name": "安全加固",
+        "description": "系统安全检测与风险加固",
+        "icon": "shield-alt",
+        "tags": [
+          "安全",
+          "运维",
+          "审计"
+        ],
+        "highlights": [
+          "漏洞检测",
+          "安全加固",
+          "合规检查",
+          "风险预警"
+        ]
+      },
+      {
+        "name": "代码助手",
+        "description": "AI 编程助手，自动写代码改 Bug",
+        "icon": "laptop-code",
+        "tags": [
+          "编程",
+          "开发",
+          "技术"
+        ],
+        "highlights": [
+          "代码生成",
+          "Bug 修复",
+          "代码审查",
+          "技术咨询"
+        ]
+      },
+      {
+        "name": "邮箱自动处理",
+        "description": "自动汇总邮件内容到 Excel，智能分类整理",
+        "icon": "envelope-open-text",
+        "tags": [
+          "邮箱",
+          "办公",
+          "Excel"
+        ],
+        "highlights": [
+          "自动收取邮件",
+          "内容提取汇总",
+          "生成 Excel 报表",
+          "重要邮件提醒"
+        ]
+      },
+      {
+        "name": "腾讯文档对接",
+        "description": "腾讯文档自动创建、编辑、数据同步",
+        "icon": "file-excel",
+        "tags": [
+          "文档",
+          "腾讯",
+          "协作"
+        ],
+        "highlights": [
+          "文档自动创建",
+          "数据同步",
+          "多人协作",
+          "模板管理"
+        ]
+      },
+      {
+        "name": "企业微信配置",
+        "description": "企业微信消息通道集成与配置",
+        "icon": "wechat",
+        "tags": [
+          "企业微信",
+          "配置",
+          "消息"
+        ],
+        "highlights": [
+          "消息收发",
+          "群聊管理",
+          "机器人配置",
+          "权限设置"
+        ]
+      },
+      {
+        "name": "飞书配置",
+        "description": "飞书消息通道集成与配置",
+        "icon": "feishu",
+        "tags": [
+          "飞书",
+          "配置",
+          "消息"
+        ],
+        "highlights": [
+          "消息收发",
+          "日历同步",
+          "机器人配置",
+          "审批集成"
+        ]
+      },
+      {
+        "name": "钉钉配置",
+        "description": "钉钉消息通道集成与配置",
+        "icon": "dingding",
+        "tags": [
+          "钉钉",
+          "配置",
+          "消息"
+        ],
+        "highlights": [
+          "消息收发",
+          "工作通知",
+          "机器人配置",
+          "审批集成"
+        ]
+      }
+    ]
+  },
+  "services": {
+    "title": "合作方案",
+    "description": "多种合作方式，总有一款适合您",
+    "service_list": [
+      {
+        "id": "personal",
+        "title": "个人咨询服务",
+        "icon": "user",
+        "price": "¥1000/小时",
+        "description": "一对一指导，手把手教您使用 OpenClaw",
+        "features": [
+          "远程协助安装",
+          "功能使用教学",
+          "问题及时解答",
+          "最佳实践分享"
+        ],
+        "target": "个人用户、投资者、自由职业者"
+      },
+      {
+        "id": "enterprise",
+        "title": "企业咨询服务",
+        "icon": "building",
+        "price": "¥3000/天",
+        "description": "为企业量身定制 AI 助手解决方案",
+        "features": [
+          "需求分析评估",
+          "定制方案设计",
+          "团队培训指导",
+          "长期技术支持"
+        ],
+        "target": "中小企业、销售团队、管理部门"
+      },
+      {
+        "id": "deployment",
+        "title": "部署实施服务",
+        "icon": "rocket",
+        "price": "¥10000 起",
+        "description": "全程托管，您只需提需求，我们负责落地",
+        "features": [
+          "环境搭建配置",
+          "功能定制开发",
+          "员工培训上手",
+          "运维文档交付"
+        ],
+        "target": "希望快速落地的企业客户"
+      },
+      {
+        "id": "skill-sales",
+        "title": "现成技能购买",
+        "icon": "shopping-cart",
+        "price": "¥500-5000/个",
+        "description": "即买即用，快速扩展 AI 能力",
+        "features": [
+          "投资监控套件",
+          "客户管理系统",
+          "文档处理工具",
+          "更多行业方案"
+        ],
+        "target": "已有 OpenClaw 环境的用户"
+      },
+      {
+        "id": "custom-dev",
+        "title": "深度定制开发",
+        "icon": "cogs",
+        "price": "面议",
+        "description": "打造专属 AI 系统，满足特殊业务需求",
+        "features": [
+          "专属技能开发",
+          "系统定制改造",
+          "数据安全加固",
+          "私有模型对接"
+        ],
+        "target": "有特殊需求的大型企业"
+      }
+    ]
+  },
+  "contact": {
+    "title": "联系我们",
+    "description": "扫码添加微信，开启您的 AI 助手之旅",
+    "wechat": {
+      "account": "openclawletsgo",
+      "qrcode": "/images/weChat.JPG"
+    },
+    "logo": "/images/Logo.JPG"
+  }
+}
