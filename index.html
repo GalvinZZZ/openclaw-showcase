@@ -20,11 +20,13 @@
         .platform-wechat { background: #07c160; color: white; }
         .platform-dingding { background: #0089ff; color: white; }
         .platform-feishu { background: #3370ff; color: white; }
+        .accordion-content { display: none; }
+        .accordion-content.active { display: block; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Sticky Navigation -->
+    <!-- Navigation -->
     <nav class="sticky-nav bg-white/95 backdrop-blur-md shadow-sm">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-14">
@@ -38,7 +40,7 @@
                     <a href="#skills" class="px-3 py-2 text-gray-600 hover:text-indigo-600 font-medium text-sm">技能库</a>
                     <a href="#services" class="px-3 py-2 text-gray-600 hover:text-indigo-600 font-medium text-sm">合作方案</a>
                 </div>
-                <button class="md:hidden text-gray-600 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <button class="md:hidden text-gray-600 p-2" onclick="toggleMobileMenu()">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
@@ -59,8 +61,8 @@
             <p class="text-base md:text-lg text-indigo-100 mb-2">让 AI 成为您的 24 小时私人助理</p>
             <p class="text-sm md:text-base text-indigo-200 mb-6 max-w-xl mx-auto">无需懂技术，只需说句话，AI 自动帮您处理投资、办公、客户跟进等繁琐事务</p>
             <div class="max-w-xs mx-auto bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20">
-                <div class="w-40 h-40 mx-auto rounded-xl bg-white mb-3 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">微信二维码</span>
+                <div class="w-40 h-40 mx-auto rounded-xl bg-white mb-3 flex items-center justify-center text-gray-400 text-sm">
+                    微信二维码
                 </div>
                 <div class="flex items-center justify-center mb-1">
                     <i class="fab fa-weixin text-green-400 text-xl mr-2"></i>
@@ -87,19 +89,19 @@
                 <div class="grid grid-cols-2 gap-3">
                     <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4">
                         <div class="font-semibold text-indigo-700 text-sm">投资管家</div>
-                        <div class="text-xs text-gray-600 mt-1">自动监控基金股票</div>
+                        <div class="text-xs text-gray-600 mt-1">自动监控基金股票，每天推送买卖建议</div>
                     </div>
                     <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4">
                         <div class="font-semibold text-indigo-700 text-sm">办公秘书</div>
-                        <div class="text-xs text-gray-600 mt-1">自动处理文档表格</div>
+                        <div class="text-xs text-gray-600 mt-1">自动处理文档、表格、客户跟进</div>
                     </div>
                     <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4">
                         <div class="font-semibold text-indigo-700 text-sm">24小时在线</div>
-                        <div class="text-xs text-gray-600 mt-1">随时随地发消息</div>
+                        <div class="text-xs text-gray-600 mt-1">随时随地发消息，秒级响应</div>
                     </div>
                     <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4">
                         <div class="font-semibold text-indigo-700 text-sm">数据安全</div>
-                        <div class="text-xs text-gray-600 mt-1">数据存在自己电脑</div>
+                        <div class="text-xs text-gray-600 mt-1">所有数据存在您自己电脑，不上传云端</div>
                     </div>
                 </div>
             </div>
@@ -123,4 +125,474 @@
                     <div class="platform-badge platform-dingding">
                         <i class="fas fa-comment-dots mr-1"></i>钉钉
                     </div>
-                    <div class="chat-b
+                    <div class="chat-bubble chat-user">把这份合同总结一下，看看有没有风险</div>
+                    <div class="chat-bubble chat-assistant">📄 合同摘要：
+
+✅ 合作方：XX 科技有限公司
+✅ 金额：50 万元
+✅ 工期：3 个月
+
+⚠️ 风险提示：
+1. 付款条款为 3-7 分期，尾款风险较高
+2. 违约责任条款不够明确
+3. 建议增加验收标准细则
+
+需要我帮您修改合同吗？</div>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-4">
+                    <div class="platform-badge platform-feishu">
+                        <i class="fas fa-comment-dots mr-1"></i>飞书
+                    </div>
+                    <div class="chat-bubble chat-user">下周三下午 3 点提醒我联系王总谈合作</div>
+                    <div class="chat-bubble chat-assistant">✅ 已添加到日程
+
+📅 提醒事项：
+时间：下周三（3 月 20 日）下午 3:00
+事项：联系王总谈合作
+方式：微信/电话
+
+我会在当天提前 30 分钟提醒您。需要我帮您准备合作方案的资料吗？</div>
+                </div>
+            </div>
+
+            <!-- Collapsible Sections -->
+            <div class="mb-4 border border-gray-200 rounded-xl overflow-hidden">
+                <button onclick="toggleAccordion(this)" class="w-full px-4 py-3 flex items-center justify-between bg-gray-50 hover:bg-gray-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-rocket text-indigo-600 mr-2"></i>
+                        <span class="font-semibold">三步开始使用（点击展开）</span>
+                    </div>
+                    <i class="fas fa-chevron-down transition-transform accordion-icon"></i>
+                </button>
+                <div class="accordion-content px-4 py-3 bg-white">
+                    <div class="space-y-3">
+                        <div class="bg-gray-100 rounded-lg p-3">
+                            <div class="font-medium text-sm mb-1">Mac 电脑</div>
+                            <code class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded block overflow-x-auto">curl -fsSL https://openclaw.ai/install.sh | bash</code>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-3">
+                            <div class="font-medium text-sm mb-1">Windows 电脑</div>
+                            <code class="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded block overflow-x-auto">iwr -useb https://openclaw.ai/install.ps1 | iex</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold mb-4">为什么选 OpenClaw</h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-100">
+                        <div class="font-semibold text-amber-800 text-sm">比请助理便宜</div>
+                        <div class="text-xs text-gray-700 mt-1">一个助理月薪 5000，OpenClaw 一次投入，24 小时不休息</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-100">
+                        <div class="font-semibold text-amber-800 text-sm">数据自己掌控</div>
+                        <div class="text-xs text-gray-700 mt-1">不像其他 AI 要把数据传到别人服务器，您的数据存在自己电脑</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-100">
+                        <div class="font-semibold text-amber-800 text-sm">越用越聪明</div>
+                        <div class="text-xs text-gray-700 mt-1">AI 会记住您的偏好，用得越久越懂您的习惯</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="cases" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-bold text-center mb-2">真实客户案例</h2>
+            <p class="text-sm text-gray-600 text-center mb-8">看看别人怎么用 OpenClaw 提升效率</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+                    <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-1 rounded">个人理财</span>
+                    <h3 class="font-bold text-base mt-2">张总的投资管家</h3>
+                    <p class="text-gray-600 text-sm mt-2">张总平时忙生意，没时间盯盘。我们帮他配置了投资监控，每天早上 8 点 AI 自动汇报持仓涨跌，重大变动立即微信提醒。</p>
+                    <div class="mt-3 flex flex-wrap gap-1">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">自动净值查询</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">涨跌预警</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">买卖建议</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">收益统计</span>
+                    </div>
+                    <div class="mt-3 bg-green-50 rounded-lg p-3 border border-green-100">
+                        <div class="text-xs text-green-800 font-medium">实际效果</div>
+                        <div class="text-xs text-green-700 mt-1">从每天花 2 小时看盘，到现在每天看 5 分钟 AI 报告，投资收益还提高了 15%</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+                    <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-1 rounded">销售管理</span>
+                    <h3 class="font-bold text-base mt-2">李经理的客户跟进</h3>
+                    <p class="text-gray-600 text-sm mt-2">李经理有 200 多个客户，经常忘记跟进。AI 帮他记录每次沟通，自动提醒下次联系时间，客户询价自动回复。</p>
+                    <div class="mt-3 flex flex-wrap gap-1">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">客户档案管理</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">自动提醒</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">询价回复</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">跟进记录</span>
+                    </div>
+                    <div class="mt-3 bg-green-50 rounded-lg p-3 border border-green-100">
+                        <div class="text-xs text-green-800 font-medium">实际效果</div>
+                        <div class="text-xs text-green-700 mt-1">客户满意度提升 30%，成交率提高 20%，再也不漏单</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+                    <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-1 rounded">办公自动化</span>
+                    <h3 class="font-bold text-base mt-2">王老板的文档助手</h3>
+                    <p class="text-gray-600 text-sm mt-2">王老板经常要处理合同、报告。现在直接发语音给 AI，5 分钟就能拿到整理好的文档，还能自动检查风险条款。</p>
+                    <div class="mt-3 flex flex-wrap gap-1">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">语音转文字</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">合同审查</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">报告生成</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">风险提醒</span>
+                    </div>
+                    <div class="mt-3 bg-green-50 rounded-lg p-3 border border-green-100">
+                        <div class="text-xs text-green-800 font-medium">实际效果</div>
+                        <div class="text-xs text-green-700 mt-1">处理文档时间从 2 小时缩短到 20 分钟，出错率降为 0</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+                    <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-1 rounded">商业分析</span>
+                    <h3 class="font-bold text-base mt-2">赵总的市场情报</h3>
+                    <p class="text-gray-600 text-sm mt-2">赵总需要了解行业动态和竞品情况。AI 每天自动搜集新闻、整理报告，重要信息第一时间推送。</p>
+                    <div class="mt-3 flex flex-wrap gap-1">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">自动新闻搜集</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">竞品监控</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">日报推送</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">趋势分析</span>
+                    </div>
+                    <div class="mt-3 bg-green-50 rounded-lg p-3 border border-green-100">
+                        <div class="text-xs text-green-800 font-medium">实际效果</div>
+                        <div class="text-xs text-green-700 mt-1">信息获取效率提升 10 倍，决策更快更准</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+                    <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-1 rounded">商业策划</span>
+                    <h3 class="font-bold text-base mt-2">陈总的文旅项目</h3>
+                    <p class="text-gray-600 text-sm mt-2">陈总要投资一个文旅项目，需要了解目标客群和周边竞品。AI 自动分析游客画像、监控竞品舆情、生成详细报告。</p>
+                    <div class="mt-3 flex flex-wrap gap-1">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">游客画像分析</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">竞品舆情监控</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">市场调研报告</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">投资决策建议</span>
+                    </div>
+                    <div class="mt-3 bg-green-50 rounded-lg p-3 border border-green-100">
+                        <div class="text-xs text-green-800 font-medium">实际效果</div>
+                        <div class="text-xs text-green-700 mt-1">调研周期从 2 周缩短到 3 天，投资决策更有信心</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+                    <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-1 rounded">办公效率</span>
+                    <h3 class="font-bold text-base mt-2">刘主任的邮件处理</h3>
+                    <p class="text-gray-600 text-sm mt-2">刘主任每天收到上百封邮件，AI 自动分类、提取关键信息、起草回复，重要邮件立即提醒。</p>
+                    <div class="mt-3 flex flex-wrap gap-1">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">邮件自动分类</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">关键信息提取</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">智能起草回复</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">重要事项提醒</span>
+                    </div>
+                    <div class="mt-3 bg-green-50 rounded-lg p-3 border border-green-100">
+                        <div class="text-xs text-green-800 font-medium">实际效果</div>
+                        <div class="text-xs text-green-700 mt-1">处理邮件时间从每天 3 小时缩短到 30 分钟</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+                    <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-1 rounded">系统安全</span>
+                    <h3 class="font-bold text-base mt-2">周厂长的安全加固</h3>
+                    <p class="text-gray-600 text-sm mt-2">周厂长担心工厂数据安全，AI 自动检测系统漏洞、加固安全设置、定期生成安全报告。</p>
+                    <div class="mt-3 flex flex-wrap gap-1">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">漏洞自动检测</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">安全设置加固</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">风险预警</span><span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">合规报告生成</span>
+                    </div>
+                    <div class="mt-3 bg-green-50 rounded-lg p-3 border border-green-100">
+                        <div class="text-xs text-green-800 font-medium">实际效果</div>
+                        <div class="text-xs text-green-700 mt-1">发现 3 个高危漏洞并修复，通过安全合规检查</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-bold text-center mb-2">AI 技能库</h2>
+            <p class="text-sm text-gray-600 text-center mb-8">像手机 App 一样，按需安装 AI 技能</p>
+            
+            <div class="mb-8">
+                <h3 class="text-base font-bold mb-4 flex items-center"><i class="fas fa-star text-amber-500 mr-2"></i>我们自建的 Skills</h3>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-line text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">投资监控</div>
+                                    <div class="text-xs text-gray-600">基金股票实时监控，智能买卖建议</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">自动净值查询</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">价格预警</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">微信推送</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">收益分析</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-newspaper text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">财经新闻</div>
+                                    <div class="text-xs text-gray-600">财经新闻聚合分析，市场动态一手掌握</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">A 股美股基金</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">要闻筛选</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">日报推送</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-wallet text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">投资组合</div>
+                                    <div class="text-xs text-gray-600">投资组合追踪与收益报告生成</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">交易记录</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">收益计算</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">配置分析</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-location text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">文旅策划</div>
+                                    <div class="text-xs text-gray-600">文旅商业策划助手，人群画像竞品调研</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">人群画像</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">舆情监控</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">竞品调研</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">报告生成</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-file-word text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">企业微信文档</div>
+                                    <div class="text-xs text-gray-600">企业微信文档和智能表格自动操作</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">自动创建文档</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">智能表格操作</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">模板管理</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">权限控制</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-shield-alt text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">安全加固</div>
+                                    <div class="text-xs text-gray-600">系统安全检测与风险加固</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">漏洞检测</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">安全加固</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">合规检查</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">风险预警</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-laptop-code text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">代码助手</div>
+                                    <div class="text-xs text-gray-600">AI 编程助手，自动写代码改 Bug</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">代码生成</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">Bug 修复</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">代码审查</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">技术咨询</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope-open-text text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">邮箱自动处理</div>
+                                    <div class="text-xs text-gray-600">自动汇总邮件内容到 Excel，智能分类整理</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">自动收取邮件</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">内容提取汇总</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">生成 Excel 报表</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">重要邮件提醒</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-file-excel text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">腾讯文档对接</div>
+                                    <div class="text-xs text-gray-600">腾讯文档自动创建、编辑、数据同步</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">文档自动创建</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">数据同步</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">多人协作</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">模板管理</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-wechat text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">企业微信配置</div>
+                                    <div class="text-xs text-gray-600">企业微信消息通道集成与配置</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">消息收发</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">群聊管理</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">机器人配置</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">权限设置</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-feishu text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">飞书配置</div>
+                                    <div class="text-xs text-gray-600">飞书消息通道集成与配置</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">消息收发</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">日历同步</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">机器人配置</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">审批集成</span>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border border-indigo-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-dingding text-indigo-600 text-lg mr-2"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">钉钉配置</div>
+                                    <div class="text-xs text-gray-600">钉钉消息通道集成与配置</div>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">自建</span>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">消息收发</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">工作通知</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">机器人配置</span><span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">审批集成</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-bold text-center mb-2">合作方案</h2>
+            <p class="text-sm text-indigo-200 text-center mb-8">多种合作方式，总有一款适合您</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="text-xl font-bold text-amber-400">¥1000/小时</span>
+                    </div>
+                    <h3 class="font-bold mb-2">个人咨询服务</h3>
+                    <p class="text-indigo-200 text-sm mb-4">一对一指导，手把手教您使用 OpenClaw</p>
+                    <div class="space-y-1 mb-4">
+                        <div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">远程协助安装</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">功能使用教学</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">问题及时解答</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">最佳实践分享</span></div>
+                    </div>
+                    <div class="text-xs text-indigo-300">适合：个人用户、投资者、自由职业者</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <span class="text-xl font-bold text-amber-400">¥3000/天</span>
+                    </div>
+                    <h3 class="font-bold mb-2">企业咨询服务</h3>
+                    <p class="text-indigo-200 text-sm mb-4">为企业量身定制 AI 助手解决方案</p>
+                    <div class="space-y-1 mb-4">
+                        <div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">需求分析评估</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">定制方案设计</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">团队培训指导</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">长期技术支持</span></div>
+                    </div>
+                    <div class="text-xs text-indigo-300">适合：中小企业、销售团队、管理部门</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <span class="text-xl font-bold text-amber-400">¥10000 起</span>
+                    </div>
+                    <h3 class="font-bold mb-2">部署实施服务</h3>
+                    <p class="text-indigo-200 text-sm mb-4">全程托管，您只需提需求，我们负责落地</p>
+                    <div class="space-y-1 mb-4">
+                        <div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">环境搭建配置</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">功能定制开发</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">员工培训上手</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">运维文档交付</span></div>
+                    </div>
+                    <div class="text-xs text-indigo-300">适合：希望快速落地的企业客户</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <span class="text-xl font-bold text-amber-400">¥500-5000/个</span>
+                    </div>
+                    <h3 class="font-bold mb-2">现成技能购买</h3>
+                    <p class="text-indigo-200 text-sm mb-4">即买即用，快速扩展 AI 能力</p>
+                    <div class="space-y-1 mb-4">
+                        <div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">投资监控套件</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">客户管理系统</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">文档处理工具</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">更多行业方案</span></div>
+                    </div>
+                    <div class="text-xs text-indigo-300">适合：已有 OpenClaw 环境的用户</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <span class="text-xl font-bold text-amber-400">面议</span>
+                    </div>
+                    <h3 class="font-bold mb-2">深度定制开发</h3>
+                    <p class="text-indigo-200 text-sm mb-4">打造专属 AI 系统，满足特殊业务需求</p>
+                    <div class="space-y-1 mb-4">
+                        <div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">专属技能开发</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">系统定制改造</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">数据安全加固</span></div><div class="flex items-center text-sm"><i class="fas fa-check-circle text-green-400 mr-2 text-xs"></i><span class="text-indigo-100">私有模型对接</span></div>
+                    </div>
+                    <div class="text-xs text-indigo-300">适合：有特殊需求的大型企业</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="py-8 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <span class="text-lg font-bold">OpenClaw</span>
+            </div>
+            <p class="text-gray-400 text-sm mb-4">扫码添加微信，开启 AI 助手之旅</p>
+            <div class="inline-block bg-white/10 rounded-xl p-4">
+                <div class="w-24 h-24 bg-white rounded-lg flex items-center justify-center text-gray-400 text-xs mb-2">
+                    微信二维码
+                </div>
+                <div class="text-xs text-gray-400">openclawletsgo</div>
+            </div>
+            <div class="mt-6 text-xs text-gray-500">© 2026 OpenClaw 解决方案</div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+        function toggleAccordion(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('.accordion-icon');
+            content.classList.toggle('active');
+            icon.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+    </script>
+</body>
+</html>
